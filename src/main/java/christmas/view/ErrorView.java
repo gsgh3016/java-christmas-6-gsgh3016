@@ -4,7 +4,7 @@ public class ErrorView {
     private static final String ERROR = "[ERROR] ";
 
     public static void printOnlyNumber() {
-        System.out.println(ERROR + "숫자만 입력해주세요.");
+        System.out.println(ERROR + "숫자만 입력해 주세요.");
     }
 
     public static void printDateRange() {
