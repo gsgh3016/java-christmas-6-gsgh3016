@@ -38,5 +38,17 @@ public enum Menu {
         if (matchingMenu.isPresent()) { return matchingMenu.get(); }
         throw new IllegalArgumentException();
     }
+
+    public boolean isDessert() {
+        return this.category.equals("디저트");
+    }
+
+    public boolean isMain() {
+        return this.category.equals("메인");
+    }
+
+    public int getPrice() { return this.price; }
+
+    public String getName() { return this.name; }
 }
 
