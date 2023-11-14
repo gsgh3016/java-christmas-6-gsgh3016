@@ -13,7 +13,7 @@ class MenuTest {
     private static Stream<Arguments> initTestData() {
         return Stream.of(
                 Arguments.of("아이스크림", true),
-                Arguments.of("우테코탈락", false)
+                Arguments.of("없는메뉴", false)
         );
     }
 
