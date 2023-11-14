@@ -37,7 +37,6 @@ public class DiscountService {
         discount += applyDDayDiscount();
         discount += applyWeekDiscount();
         discount += applySpecialDiscount();
-        recordDiscount(discount);
         return discount;
     }
 
@@ -75,11 +74,6 @@ public class DiscountService {
     private void recordNoDiscount() {
         DiscountManager.add(Category.DISCOUNT, Category.NO);
         DiscountManager.add(Category.GIFT, Category.NO);
-        DiscountManager.add(Category.DISCOUNT_PRICE, Category.NO);
-    }
-
-    private void recordDiscount(int discount) {
-        String formattedPrice = String.format(Formatting.PRICE, -discount);
-        DiscountManager.add(Category.DISCOUNT_PRICE, formattedPrice);
+        DiscountManager.add(Category.DISCOUNT_PRICE, String.valueOf(NO_DISCOUNT));
     }
 }

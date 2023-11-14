@@ -26,7 +26,7 @@ public class DDayDiscountService extends DiscountService {
         if (condition.test(date)) {
             int discountAmount = DAY_DISCOUNT_UNIT * (date.getDayOfMonth() - DAY_OFFSET);
             discountSum += discountAmount;
-            recordDiscount(discountAmount);
+            recordDiscount(DAY_DISCOUNT_DEFAULT + discountAmount);
         }
         return DAY_DISCOUNT_DEFAULT + discountSum;
     }

@@ -6,6 +6,7 @@ import christmas.util.Badge;
 import christmas.model.Menu;
 import christmas.model.MyDate;
 import christmas.util.Category;
+import christmas.util.Formatting;
 import christmas.util.validation.ErrorMessage;
 import christmas.view.ErrorView;
 
@@ -25,11 +26,13 @@ public class PaymentService {
     public void pay(int totalPrice) {
         int discount = DISCOUNT_DEFAULT;
         try {
-            applyDiscount(totalPrice);
+            discount += applyDiscount(totalPrice);
         } catch (IllegalStateException illegalStateException) {
             ErrorView.print(illegalStateException.getMessage());
         }
+        applyAfterDiscount(totalPrice, discount);
         discount += applyGift(totalPrice);
+        recordDiscount(discount);
         applyBadge(discount);
     }
 
@@ -46,7 +49,17 @@ public class PaymentService {
         return giftService.getGift(totalPrice);
     }
 
+    private void applyAfterDiscount(int totalPrice, int discount) {
+        String formattedPrice = String.format(Formatting.PRICE, totalPrice - discount);
+        DiscountManager.add(Category.TOTAL_PRICE_AFTER_DISCOUNT, formattedPrice);
+    }
+
     private void applyBadge(int discount) {
         DiscountManager.add(Category.BADGE, Badge.select(discount).toString());
+    }
+
+    private void recordDiscount(int discount) {
+        String formattedPrice = String.format(Formatting.PRICE, -discount);
+        DiscountManager.add(Category.DISCOUNT_PRICE, formattedPrice);
     }
 }

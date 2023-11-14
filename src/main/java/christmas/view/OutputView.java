@@ -1,6 +1,7 @@
 package christmas.view;
 
 import christmas.model.Menu;
+import christmas.util.Formatting;
 
 public class OutputView {
     public static void printBookingQuestion() {
@@ -22,17 +23,23 @@ public class OutputView {
         );
     }
 
+    public static void printBeforeDiscount(int totalPrice) {
+        System.out.printf(Formatting.PRICE + "\n", totalPrice);
+    }
+
     public static void printCategory(String orderedMenu) {
+        System.out.println(orderedMenu);
     }
 
     public static void printOrderDetail(Menu menu, int quantity) {
+        System.out.printf(Formatting.MENU + "\n", menu.getName(), quantity);
+    }
+
+    public static void printResultDetail(String detail) {
+        System.out.println(detail);
     }
 
     public static void printEmptyLine() {
         System.out.println();
-    }
-
-    public static void printResultDetail(String detail) {
-
     }
 }
