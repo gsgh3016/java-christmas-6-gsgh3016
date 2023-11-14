@@ -1,4 +1,6 @@
-package christmas.model;
+package christmas.util;
+
+import christmas.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,24 +23,23 @@ public class DiscountManager {
                 .add(discountDetail);
     }
 
-
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
+    public void printResult() {
         for (Map.Entry<String, List<String>> discountContent: discountContents.entrySet()) {
-            parseCategory(discountContent, stringBuilder);
+            printCategory(discountContent);
         }
-        return stringBuilder.toString();
     }
 
-    private void parseCategory(Map.Entry<String, List<String>> discountContent, StringBuilder stringBuilder) {
+    private void printCategory(Map.Entry<String, List<String>> discountContent) {
         String category = discountContent.getKey();
         List<String> details = discountContent.getValue();
-        stringBuilder.append(category + "\n");
-        stringBuilder.append(parseDetail(details) + "\n");
+        OutputView.printCategory(category);
+        printDetail(details);
+        OutputView.printEmptyLine();
     }
 
-    private String parseDetail(List<String> details) {
-        return String.join("\n", details.toArray(new String[0]));
+    private void printDetail(List<String> details) {
+        for (String detail: details) {
+            OutputView.printResultDetail(detail);
+        }
     }
 }

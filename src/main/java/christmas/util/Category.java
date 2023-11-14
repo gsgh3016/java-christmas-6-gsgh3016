@@ -8,4 +8,5 @@ public class Category {
     public static final String DISCOUNT_PRICE = "<총혜택 금액>";
     public static final String TOTAL_PRICE_AFTER_DISCOUNT = "<할인 후 예상 결제 금액>";
     public static final String BADGE = "<12월 이벤트 배지>";
+    public static final String NO = "없음";
 }
