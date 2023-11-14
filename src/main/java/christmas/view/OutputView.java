@@ -16,9 +16,9 @@ public class OutputView {
         );
     }
 
-    public static void printEventBenefits() {
-        System.out.println(
-                "12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"
+    public static void printEventBenefits(int day) {
+        System.out.printf(
+                "12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n", day
         );
     }
 
@@ -29,6 +29,7 @@ public class OutputView {
     }
 
     public static void printEmptyLine() {
+        System.out.println();
     }
 
     public static void printResultDetail(String detail) {

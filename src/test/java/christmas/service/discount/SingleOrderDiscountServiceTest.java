@@ -18,8 +18,8 @@ class SingleOrderDiscountServiceTest {
 
     @BeforeEach
     void setUp() {
-        discountService = new SingleOrderDiscountService(testData.date, testData.orders);
         testData = new ServiceTestData();
+        discountService = new SingleOrderDiscountService(testData.date, testData.orders);
     }
 
     @Test
@@ -28,8 +28,8 @@ class SingleOrderDiscountServiceTest {
         int expectedDiscount = (testData.orders.get(Menu.CHOCOLATE_CAKE)) * DISCOUNT_UNIT;
 
         for (Map.Entry<Menu, Integer> order: testData.orders.entrySet()) {
-            discountSum = SingleOrderDiscountService.WEEKDAY_DISCOUNT_STRATEGY
-                    .apply(discountSum, order);
+            discountSum += SingleOrderDiscountService.WEEKDAY_DISCOUNT_STRATEGY
+                    .apply(order);
         }
 
         assertThat(discountSum).isEqualTo(expectedDiscount);
@@ -41,8 +41,8 @@ class SingleOrderDiscountServiceTest {
         int expectedDiscount = (testData.orders.get(Menu.BARBECUE_RIBS)) * DISCOUNT_UNIT;
 
         for (Map.Entry<Menu, Integer> order: testData.orders.entrySet()) {
-            discountSum = SingleOrderDiscountService.WEEKEND_DISCOUNT_STRATEGY
-                    .apply(discountSum, order);
+            discountSum += SingleOrderDiscountService.WEEKEND_DISCOUNT_STRATEGY
+                    .apply(order);
         }
 
         assertThat(discountSum).isEqualTo(expectedDiscount);

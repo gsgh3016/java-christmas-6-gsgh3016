@@ -3,7 +3,7 @@ package christmas.util;
 import java.util.function.Predicate;
 
 public enum Badge {
-    NONE(null, discount ->
+    NONE("없음", discount ->
             discount < 5_000
     ),
     STAR("별", discount ->

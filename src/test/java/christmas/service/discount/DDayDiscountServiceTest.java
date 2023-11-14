@@ -17,8 +17,8 @@ class DDayDiscountServiceTest {
 
     @BeforeEach
     void setUp() {
-        discountService = new DDayDiscountService(testData.date, testData.orders);
         testData = new ServiceTestData();
+        discountService = new DDayDiscountService(testData.date, testData.orders);
     }
 
     @Test
@@ -27,7 +27,7 @@ class DDayDiscountServiceTest {
         int expectedDiscount = DISCOUNT_DEFAULT + (testData.date.getDayOfMonth() - DAY_OFFSET) * DISCOUNT_UNIT;
 
         discountSum = DDayDiscountService.DDAY_DISCOUNT_STRATEGY
-                .apply(discountSum, testData.date);
+                .apply(testData.date);
 
         assertThat(discountSum).isEqualTo(expectedDiscount);
     }

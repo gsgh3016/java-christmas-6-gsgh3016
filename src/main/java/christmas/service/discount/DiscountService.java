@@ -15,6 +15,7 @@ public class DiscountService {
 
     private final DiscountStrategy weekDiscountStrategy;
     private final DiscountStrategy dDayDiscountStrategy;
+    private final DiscountStrategy specialDiscountStrategy;
 
     private final MyDate date;
     private final EnumMap<Menu, Integer> orders;
@@ -24,12 +25,13 @@ public class DiscountService {
         this.orders = orders;
         weekDiscountStrategy = getWeekDiscountStrategy();
         dDayDiscountStrategy = getDDayDiscountStrategy();
+        specialDiscountStrategy = getSpecialDiscountStrategy();
     }
 
     public int calculateDiscount(int totalPrice) {
         int discount = NO_DISCOUNT;
         if (totalPrice < DISCOUNT_POLICY) {
-            DiscountManager.add(Category.DISCOUNT, Category.NO);
+            recordNoDiscount();
             return discount;
         }
         discount += applyDDayDiscount();
@@ -46,32 +48,34 @@ public class DiscountService {
         return SingleOrderDiscountService.WEEKDAY_DISCOUNT_STRATEGY;
     }
 
-    public int applyWeekDiscount() {
+    private int applyWeekDiscount() {
         int discountSum = NO_DISCOUNT;
         for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
-            discountSum = weekDiscountStrategy.apply(discountSum, order);
+            discountSum += weekDiscountStrategy.apply(order);
         }
         return discountSum;
     }
 
     private DiscountStrategy getDDayDiscountStrategy() {
-        if (date.isDDayPeriod()) {
-            return DDayDiscountService.DDAY_DISCOUNT_STRATEGY;
-        }
-        return null;
+        return DDayDiscountService.DDAY_DISCOUNT_STRATEGY;
     }
 
-    public int applyDDayDiscount() {
-        if (dDayDiscountStrategy == null) { return NO_DISCOUNT; }
-        return dDayDiscountStrategy.apply(NO_DISCOUNT, date);
+    private int applyDDayDiscount() {
+        return dDayDiscountStrategy.apply(date);
     }
 
     private DiscountStrategy getSpecialDiscountStrategy() {
-        return null;
+        return SpecialDiscountService.SPECIAL_DISCOUNT_STRATEGY;
     }
 
-    public int applySpecialDiscount() {
-        return NO_DISCOUNT;
+    private int applySpecialDiscount() {
+        return specialDiscountStrategy.apply(date);
+    }
+
+    private void recordNoDiscount() {
+        DiscountManager.add(Category.DISCOUNT, Category.NO);
+        DiscountManager.add(Category.GIFT, Category.NO);
+        DiscountManager.add(Category.DISCOUNT_PRICE, Category.NO);
     }
 
     private void recordDiscount(int discount) {
