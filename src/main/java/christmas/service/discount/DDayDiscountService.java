@@ -1,9 +1,10 @@
 package christmas.service.discount;
 
-import christmas.model.DiscountManager;
+import christmas.util.DiscountManager;
 import christmas.model.Menu;
 import christmas.model.MyDate;
 import christmas.util.Category;
+import christmas.util.Formatting;
 
 import java.util.EnumMap;
 import java.util.function.Predicate;
@@ -23,10 +24,14 @@ public class DDayDiscountService extends DiscountService {
         if (condition.test(date)) {
             int discountAmount = DAY_DISCOUNT_UNIT * (date.getDayOfMonth() - DAY_OFFSET);
             discountSum += discountAmount;
-            String detail = String.format("%s: %d", discountLabel, discountAmount);
-            DiscountManager.add(Category.DISCOUNT, detail);
+            recordDiscount(discountLabel, discountAmount);
         }
         return DAY_DISCOUNT_DEFAULT + discountSum;
+    }
+
+    private static void recordDiscount(String discountLabel, int discountAmount) {
+        String detail = String.format(Formatting.DISCOUNT, discountLabel, -discountAmount);
+        DiscountManager.add(Category.DISCOUNT, detail);
     }
 
     public static final DiscountStrategy DDAY_DISCOUNT_STRATEGY =

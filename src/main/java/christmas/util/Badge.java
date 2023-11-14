@@ -33,7 +33,6 @@ public enum Badge {
         return NONE;
     }
 
-
     @Override
     public String toString() {
         return this.name;

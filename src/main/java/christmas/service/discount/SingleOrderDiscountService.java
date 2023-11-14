@@ -1,9 +1,10 @@
 package christmas.service.discount;
 
-import christmas.model.DiscountManager;
+import christmas.util.DiscountManager;
 import christmas.model.Menu;
 import christmas.model.MyDate;
 import christmas.util.Category;
+import christmas.util.Formatting;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -23,10 +24,14 @@ public class SingleOrderDiscountService extends DiscountService {
         if (condition.test(order.getKey())) {
             int discountAmount = WEEK_DISCOUNT_UNIT * order.getValue();
             discountSum += discountAmount;
-            String detail = String.format("%s: %d", discountLabel, discountAmount);
-            DiscountManager.add(Category.DISCOUNT, detail);
+            recordDiscount(discountLabel, discountAmount);
         }
         return discountSum;
+    }
+
+    private static void recordDiscount(String discountLabel, int discountAmount) {
+        String detail = String.format(Formatting.DISCOUNT, discountLabel, -discountAmount);
+        DiscountManager.add(Category.DISCOUNT, detail);
     }
 
     public static final DiscountStrategy WEEKEND_DISCOUNT_STRATEGY =

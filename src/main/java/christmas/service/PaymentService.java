@@ -1,33 +1,44 @@
 package christmas.service;
 
+import christmas.util.DiscountManager;
 import christmas.service.discount.DiscountService;
 import christmas.util.Badge;
 import christmas.model.Menu;
 import christmas.model.MyDate;
+import christmas.util.Category;
+import christmas.util.validation.ErrorMessage;
+import christmas.view.ErrorView;
 
 import java.util.EnumMap;
 
 public class PaymentService {
-    private Badge badge;
-
-    private final OrderPriceService orderPriceService;
     private final DiscountService discountService;
     private final GiftService giftService;
 
+    private static final int DISCOUNT_DEFAULT = 0;
+
     public PaymentService(MyDate date, EnumMap<Menu, Integer> orders) {
-        orderPriceService = new OrderPriceService(orders);
         discountService = new DiscountService(date, orders);
         giftService = new GiftService();
     }
 
     public void pay(int totalPrice) {
-        int discount = applyDiscount(totalPrice);
+        int discount = DISCOUNT_DEFAULT;
+        try {
+            applyDiscount(totalPrice);
+        } catch (IllegalStateException illegalStateException) {
+            ErrorView.print(illegalStateException.getMessage());
+        }
         discount += applyGift(totalPrice);
         applyBadge(discount);
     }
 
-    public int applyDiscount(int totalPrice) {
-        return discountService.calculateDiscount(totalPrice);
+    private int applyDiscount(int totalPrice) {
+        int discount = discountService.calculateDiscount(totalPrice);
+        if (discount >= totalPrice) {
+            throw new IllegalStateException(ErrorMessage.DISCOUNT_ERROR);
+        }
+        return discount;
     }
 
 
@@ -36,5 +47,6 @@ public class PaymentService {
     }
 
     private void applyBadge(int discount) {
+        DiscountManager.add(Category.BADGE, Badge.select(discount).toString());
     }
 }

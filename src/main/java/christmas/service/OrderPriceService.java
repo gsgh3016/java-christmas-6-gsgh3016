@@ -1,6 +1,8 @@
 package christmas.service;
 
 import christmas.model.Menu;
+import christmas.util.Category;
+import christmas.view.OutputView;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -21,5 +23,12 @@ public class OrderPriceService {
             totalPrice += menu.getPrice() * quantity;
         }
         return totalPrice;
+    }
+
+    public void printOrders() {
+        OutputView.printCategory(Category.ORDERED_MENU);
+        for (Map.Entry<Menu, Integer> order: orders.entrySet()) {
+            OutputView.printOrderDetail(order.getKey(), order.getValue());
+        }
     }
 }

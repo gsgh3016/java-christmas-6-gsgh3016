@@ -1,5 +1,7 @@
 package christmas.view;
 
+import christmas.model.Menu;
+
 public class OutputView {
     public static void printBookingQuestion() {
         System.out.println(
@@ -18,5 +20,18 @@ public class OutputView {
         System.out.println(
                 "12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"
         );
+    }
+
+    public static void printCategory(String orderedMenu) {
+    }
+
+    public static void printOrderDetail(Menu menu, int quantity) {
+    }
+
+    public static void printEmptyLine() {
+    }
+
+    public static void printResultDetail(String detail) {
+
     }
 }
