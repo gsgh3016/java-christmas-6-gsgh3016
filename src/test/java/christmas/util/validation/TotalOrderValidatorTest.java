@@ -1,5 +1,6 @@
-package christmas.util;
+package christmas.util.validation;
 
+import christmas.util.validation.TotalOrderValidator;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

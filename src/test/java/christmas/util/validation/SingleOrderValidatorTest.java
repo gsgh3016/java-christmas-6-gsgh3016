@@ -1,10 +1,11 @@
-package christmas.util;
+package christmas.util.validation;
 
+import christmas.util.validation.SingleOrderValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static christmas.util.SingleOrderValidator.checkMenuPresent;
+import static christmas.util.validation.SingleOrderValidator.checkMenuPresent;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 

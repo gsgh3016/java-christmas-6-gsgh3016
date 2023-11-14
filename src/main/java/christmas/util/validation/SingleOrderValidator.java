@@ -1,10 +1,10 @@
-package christmas.util;
+package christmas.util.validation;
 
 import christmas.model.Menu;
 
 import java.util.List;
 
-import static christmas.util.TotalOrderValidator.checkDoubledOrder;
+import static christmas.util.validation.TotalOrderValidator.checkDoubledOrder;
 
 public class SingleOrderValidator {
     private static final int SINGLE_ORDER_MINIMUM = 0;

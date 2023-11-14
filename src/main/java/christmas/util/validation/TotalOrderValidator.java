@@ -1,11 +1,11 @@
-package christmas.util;
+package christmas.util.validation;
 
 import christmas.model.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static christmas.util.SingleOrderValidator.checkSingleOrder;
+import static christmas.util.validation.SingleOrderValidator.checkSingleOrder;
 
 public class TotalOrderValidator {
     private static final int TOTAL_ORDER_MAXIMUM = 20;

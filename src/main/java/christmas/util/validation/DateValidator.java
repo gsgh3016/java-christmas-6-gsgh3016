@@ -1,4 +1,4 @@
-package christmas.util;
+package christmas.util.validation;
 
 import christmas.model.MyDate;
 

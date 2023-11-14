@@ -7,8 +7,8 @@ import christmas.util.OrderParser;
 
 import java.util.EnumMap;
 
-import static christmas.util.DateValidator.checkDay;
-import static christmas.util.TotalOrderValidator.checkTotalOrder;
+import static christmas.util.validation.DateValidator.checkDay;
+import static christmas.util.validation.TotalOrderValidator.checkTotalOrder;
 
 public class InputView {
     public static MyDate inputDate() {
