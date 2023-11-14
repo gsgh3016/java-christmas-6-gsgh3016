@@ -35,12 +35,8 @@ public enum Menu {
         Optional<Menu> matchingMenu = Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(order))
                 .findFirst();
-
-        if (matchingMenu.isPresent()) {
-            return matchingMenu.get();
-        } else {
-            throw new IllegalArgumentException();
-        }
+        if (matchingMenu.isPresent()) { return matchingMenu.get(); }
+        throw new IllegalArgumentException();
     }
 }
 

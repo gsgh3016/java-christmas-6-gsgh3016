@@ -7,6 +7,7 @@ public class MyDate {
     private static final String CURRENT_YEAR_MONTH = "2023-12-";
     private static final int DAY_FORMAT_LENGTH = 2;
     private static final String DAY_DIGIT_FORMAT = "0";
+
     private final LocalDate date;
 
     public MyDate(String date) {
