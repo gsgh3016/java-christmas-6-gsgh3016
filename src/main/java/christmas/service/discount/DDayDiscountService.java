@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.discount;
 
 import christmas.model.DiscountManager;
 import christmas.model.Menu;

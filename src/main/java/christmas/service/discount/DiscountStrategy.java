@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.service.discount;
 
 @FunctionalInterface
 public interface DiscountStrategy {
