@@ -42,4 +42,8 @@ public class DiscountManager {
             OutputView.printResultDetail(detail);
         }
     }
+
+    public static List<String> findByCategory(String category) {
+        return DiscountManager.instance.discountContents.get(category);
+    }
 }
