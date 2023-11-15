@@ -1,22 +1,16 @@
 package christmas.service.discount;
 
-import christmas.model.Menu;
 import christmas.model.MyDate;
 import christmas.util.constant.Category;
 import christmas.model.DiscountManager;
 import christmas.util.constant.Formatting;
 
-import java.util.EnumMap;
 import java.util.function.Predicate;
 
-public class SpecialDiscountService extends DiscountService {
+public class SpecialDiscountService {
     private static final int STAR_DISCOUNT_AMOUNT = 1_000;
     private static final int NO_DISCOUNT = 0;
     private static final String SPECIAL_DISCOUNT = "특별 할인";
-
-    public SpecialDiscountService(MyDate date, EnumMap<Menu, Integer> orders) {
-        super(date, orders);
-    }
 
     public static int applyDiscount(MyDate date, Predicate<MyDate> condition) {
         if (condition.test(date)) {

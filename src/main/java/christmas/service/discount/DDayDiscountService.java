@@ -1,25 +1,19 @@
 package christmas.service.discount;
 
 import christmas.model.DiscountManager;
-import christmas.model.Menu;
 import christmas.model.MyDate;
 import christmas.util.constant.Category;
 import christmas.util.constant.Formatting;
 
-import java.util.EnumMap;
 import java.util.function.Predicate;
 
-public class DDayDiscountService extends DiscountService {
+public class DDayDiscountService {
     private static final String DDAY_DISCOUNT = "크리스마스 디데이 할인";
 
     private static final int DAY_DISCOUNT_DEFAULT = 1_000;
     private static final int DAY_OFFSET = 1;
     private static final int DAY_DISCOUNT_UNIT = 100;
     private static final int NO_DISCOUNT = 0;
-
-    public DDayDiscountService(MyDate date, EnumMap<Menu, Integer> orders) {
-        super(date, orders);
-    }
 
     public static int applyDiscount(MyDate date, Predicate<MyDate> condition) {
         int discountSum = NO_DISCOUNT;
