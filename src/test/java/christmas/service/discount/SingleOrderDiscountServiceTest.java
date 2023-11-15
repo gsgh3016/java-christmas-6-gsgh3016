@@ -10,7 +10,6 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SingleOrderDiscountServiceTest {
-    private SingleOrderDiscountService discountService;
     private ServiceTestData testData;
 
     private static final int DISCOUNT_UNIT = 2_023;
@@ -18,7 +17,6 @@ class SingleOrderDiscountServiceTest {
     @BeforeEach
     void setUp() {
         testData = new ServiceTestData();
-        discountService = new SingleOrderDiscountService(testData.date, testData.orders);
     }
 
     @Test

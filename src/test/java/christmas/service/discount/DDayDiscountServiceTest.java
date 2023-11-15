@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class DDayDiscountServiceTest {
-    private DDayDiscountService discountService;
     private ServiceTestData testData;
 
     private static final int DISCOUNT_UNIT = 100;
@@ -17,7 +16,6 @@ class DDayDiscountServiceTest {
     @BeforeEach
     void setUp() {
         testData = new ServiceTestData();
-        discountService = new DDayDiscountService(testData.date, testData.orders);
     }
 
     @Test
