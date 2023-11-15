@@ -1,5 +1,6 @@
 package christmas.model;
 
+import christmas.util.constant.Formatting;
 import christmas.view.OutputView;
 
 import java.util.ArrayList;
@@ -26,14 +27,13 @@ public class DiscountManager {
     }
 
     public void printResult() {
-        for (Map.Entry<String, List<String>> discountContent : discountContents.entrySet()) {
-            printCategory(discountContent);
+        for (String category: Formatting.DISCOUNT_ORDERING) {
+            List<String> details = findByCategory(category);
+            printCategory(category, details);
         }
     }
 
-    private void printCategory(Map.Entry<String, List<String>> discountContent) {
-        String category = discountContent.getKey();
-        List<String> details = discountContent.getValue();
+    private void printCategory(String category, List<String> details) {
         OutputView.printCategory(category);
         printDetail(details);
         OutputView.printEmptyLine();

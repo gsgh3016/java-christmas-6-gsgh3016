@@ -25,8 +25,8 @@ public class Service {
         OutputView.printBookingQuestion();
         date = InputView.inputDate();
         OutputView.printMenuQuestion();
-        OutputView.printEventBenefits(date.getDayOfMonth());
         orders = InputView.inputOrder();
+        OutputView.printEventBenefits(date.getDayOfMonth());
         orderService = new OrderPriceService(orders);
     }
 
