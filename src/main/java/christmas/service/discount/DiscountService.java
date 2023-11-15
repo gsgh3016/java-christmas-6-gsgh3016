@@ -2,9 +2,9 @@ package christmas.service.discount;
 
 import christmas.model.Menu;
 import christmas.model.MyDate;
-import christmas.util.Category;
-import christmas.util.DiscountManager;
-import christmas.util.Formatting;
+import christmas.util.constant.Category;
+import christmas.model.DiscountManager;
+import christmas.util.constant.Formatting;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -73,7 +73,7 @@ public class DiscountService {
 
     private void recordNoDiscount() {
         DiscountManager.add(Category.DISCOUNT, Category.NO);
-        DiscountManager.add(Category.GIFT, Category.NO);
-        DiscountManager.add(Category.DISCOUNT_PRICE, String.valueOf(NO_DISCOUNT));
+        String formattedDiscount = String.format(Formatting.PRICE, NO_DISCOUNT);
+        DiscountManager.add(Category.DISCOUNT_PRICE, formattedDiscount);
     }
 }

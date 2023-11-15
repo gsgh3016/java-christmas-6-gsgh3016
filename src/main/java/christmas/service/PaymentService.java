@@ -1,12 +1,12 @@
 package christmas.service;
 
-import christmas.util.DiscountManager;
+import christmas.model.DiscountManager;
 import christmas.service.discount.DiscountService;
-import christmas.util.Badge;
+import christmas.model.Badge;
 import christmas.model.Menu;
 import christmas.model.MyDate;
-import christmas.util.Category;
-import christmas.util.Formatting;
+import christmas.util.constant.Category;
+import christmas.util.constant.Formatting;
 import christmas.util.validation.ErrorMessage;
 import christmas.view.ErrorView;
 
@@ -59,7 +59,9 @@ public class PaymentService {
     }
 
     private void recordDiscount(int discount) {
-        String formattedPrice = String.format(Formatting.PRICE, -discount);
-        DiscountManager.add(Category.DISCOUNT_PRICE, formattedPrice);
+        if (discount != 0){
+            String formattedPrice = String.format(Formatting.PRICE, -discount);
+            DiscountManager.add(Category.DISCOUNT_PRICE, formattedPrice);
+        }
     }
 }

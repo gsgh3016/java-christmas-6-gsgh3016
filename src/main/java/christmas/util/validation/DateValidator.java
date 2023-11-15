@@ -13,10 +13,8 @@ public class DateValidator {
             Integer.parseInt(target);
             new MyDate(target);
             return target;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_NUMBER_DAY);
-        } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException(ErrorMessage.DAY_OUT_OF_BOUND);
+        } catch (NumberFormatException | DateTimeParseException e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DAY);
         }
     }
 }

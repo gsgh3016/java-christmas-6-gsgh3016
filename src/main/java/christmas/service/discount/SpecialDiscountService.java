@@ -2,9 +2,9 @@ package christmas.service.discount;
 
 import christmas.model.Menu;
 import christmas.model.MyDate;
-import christmas.util.Category;
-import christmas.util.DiscountManager;
-import christmas.util.Formatting;
+import christmas.util.constant.Category;
+import christmas.model.DiscountManager;
+import christmas.util.constant.Formatting;
 
 import java.util.EnumMap;
 import java.util.function.Predicate;

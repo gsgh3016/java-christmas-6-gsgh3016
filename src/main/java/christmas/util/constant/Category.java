@@ -1,4 +1,4 @@
-package christmas.util;
+package christmas.util.constant;
 
 public class Category {
     public static final String ORDERED_MENU = "<주문 메뉴>";

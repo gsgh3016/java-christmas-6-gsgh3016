@@ -2,7 +2,7 @@ package christmas.service;
 
 import christmas.model.Menu;
 import christmas.model.MyDate;
-import christmas.util.DiscountManager;
+import christmas.model.DiscountManager;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 

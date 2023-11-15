@@ -1,10 +1,10 @@
 package christmas.service.discount;
 
-import christmas.util.DiscountManager;
+import christmas.model.DiscountManager;
 import christmas.model.Menu;
 import christmas.model.MyDate;
-import christmas.util.Category;
-import christmas.util.Formatting;
+import christmas.util.constant.Category;
+import christmas.util.constant.Formatting;
 
 import java.util.EnumMap;
 import java.util.Map;

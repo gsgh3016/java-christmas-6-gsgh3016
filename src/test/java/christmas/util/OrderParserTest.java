@@ -38,14 +38,8 @@ class OrderParserTest {
             assertThat(parsedOrder).isNotEmpty();
             return;
         }
-        if (state != STATE.EMPTY) {
-            assertThatThrownBy(() -> OrderParser.parse(order))
-                    .isInstanceOf(IllegalArgumentException.class);
-        }
-        if (state == STATE.EMPTY) {
-            assertThatThrownBy(() -> OrderParser.parse(order))
-                    .isInstanceOf(IllegalStateException.class);
-        }
+        assertThatThrownBy(() -> OrderParser.parse(order))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
 

@@ -1,9 +1,9 @@
 package christmas.service;
 
 import christmas.model.Menu;
-import christmas.util.Category;
-import christmas.util.DiscountManager;
-import christmas.util.Formatting;
+import christmas.util.constant.Category;
+import christmas.model.DiscountManager;
+import christmas.util.constant.Formatting;
 
 public class GiftService {
     private static final int GIFT_POLICY = 120_000;

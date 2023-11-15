@@ -1,4 +1,4 @@
-package christmas.util;
+package christmas.model;
 
 import java.util.function.Predicate;
 

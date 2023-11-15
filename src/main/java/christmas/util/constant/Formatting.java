@@ -1,4 +1,4 @@
-package christmas.util;
+package christmas.util.constant;
 
 public class Formatting {
     public static final String MENU = "%s %d개";

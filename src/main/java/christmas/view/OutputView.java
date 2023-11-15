@@ -1,7 +1,7 @@
 package christmas.view;
 
 import christmas.model.Menu;
-import christmas.util.Formatting;
+import christmas.util.constant.Formatting;
 
 public class OutputView {
     public static void printBookingQuestion() {

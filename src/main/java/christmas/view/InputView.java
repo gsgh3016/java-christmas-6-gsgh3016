@@ -4,17 +4,19 @@ import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Menu;
 import christmas.model.MyDate;
 import christmas.util.OrderParser;
+import christmas.util.validation.SingleOrderValidator;
+import christmas.util.validation.TotalOrderValidator;
 
 import java.util.EnumMap;
 
 import static christmas.util.validation.DateValidator.checkDay;
-import static christmas.util.validation.TotalOrderValidator.checkTotalOrder;
 
 public class InputView {
     public static MyDate inputDate() {
         while (true) {
             try {
-                return new MyDate(checkDay(Console.readLine()));
+                String input = Console.readLine();
+                return new MyDate(checkDay(input));
             } catch (Exception e) {
                 ErrorView.print(e.getMessage());
             }
@@ -24,7 +26,9 @@ public class InputView {
     public static EnumMap<Menu, Integer> inputOrder() {
         while (true) {
             try {
-                return OrderParser.parse(checkTotalOrder(Console.readLine()));
+                TotalOrderValidator validator = new TotalOrderValidator();
+                String input = Console.readLine();
+                return OrderParser.parse(validator.checkTotalOrder(input));
             } catch (Exception e) {
                 ErrorView.print(e.getMessage());
             }

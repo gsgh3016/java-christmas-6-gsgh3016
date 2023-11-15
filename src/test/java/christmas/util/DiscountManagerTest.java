@@ -1,5 +1,7 @@
 package christmas.util;
 
+import christmas.model.DiscountManager;
+import christmas.util.constant.Category;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

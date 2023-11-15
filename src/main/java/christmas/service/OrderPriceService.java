@@ -1,7 +1,7 @@
 package christmas.service;
 
 import christmas.model.Menu;
-import christmas.util.Category;
+import christmas.util.constant.Category;
 import christmas.view.OutputView;
 
 import java.util.EnumMap;

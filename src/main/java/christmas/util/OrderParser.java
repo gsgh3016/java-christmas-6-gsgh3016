@@ -10,8 +10,9 @@ import java.util.Map;
 public class OrderParser {
     private static final String SINGLE_ORDER_DELIMITER = "-";
     private static final String TOTAL_ORDER_DELIMITER = ",";
-    private static final int MENU_INDEX = 0;
-    private static final int QUANTITY_INDEX = 1;
+
+    public static final int MENU_INDEX = 0;
+    public static final int QUANTITY_INDEX = 1;
 
     public static EnumMap<Menu, Integer> parse(String totalOrder) {
         EnumMap<Menu, Integer> orders = new EnumMap<>(Menu.class);
