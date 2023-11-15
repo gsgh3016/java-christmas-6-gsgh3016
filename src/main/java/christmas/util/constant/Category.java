@@ -1,6 +1,6 @@
 package christmas.util.constant;
 
-public class Category {
+public record Category() {
     public static final String ORDERED_MENU = "<주문 메뉴>";
     public static final String TOTAL_PRICE_BEFORE_DISCOUNT = "<할인 전 총주문 금액>";
     public static final String GIFT = "<증정 메뉴>";
