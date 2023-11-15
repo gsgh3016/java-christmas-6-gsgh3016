@@ -14,6 +14,7 @@ public class Service {
     private OrderPriceService orderService;
     private PaymentService paymentService;
     private int totalPrice;
+
     public void start() {
         input();
         order();

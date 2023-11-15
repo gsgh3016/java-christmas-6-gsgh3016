@@ -15,7 +15,9 @@ public class DiscountManager {
         discountContents = new HashMap<>();
     }
 
-    public static DiscountManager getInstance() { return instance; }
+    public static DiscountManager getInstance() {
+        return instance;
+    }
 
     public static void add(String discountCategory, String discountDetail) {
         getInstance().discountContents
@@ -24,7 +26,7 @@ public class DiscountManager {
     }
 
     public void printResult() {
-        for (Map.Entry<String, List<String>> discountContent: discountContents.entrySet()) {
+        for (Map.Entry<String, List<String>> discountContent : discountContents.entrySet()) {
             printCategory(discountContent);
         }
     }
@@ -38,7 +40,7 @@ public class DiscountManager {
     }
 
     private void printDetail(List<String> details) {
-        for (String detail: details) {
+        for (String detail : details) {
             OutputView.printResultDetail(detail);
         }
     }

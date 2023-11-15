@@ -13,9 +13,9 @@ public class MyDate {
 
     private final LocalDate date;
 
-    public MyDate(String date){
+    public MyDate(String date) {
         if (date.length() < DAY_FORMAT_LENGTH) {
-            date = DAY_DIGIT_FORMAT+ date;
+            date = DAY_DIGIT_FORMAT + date;
         }
         this.date = LocalDate.parse(CURRENT_YEAR_MONTH + date);
     }

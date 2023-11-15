@@ -59,7 +59,7 @@ public class PaymentService {
     }
 
     private void recordDiscount(int discount) {
-        if (discount != 0){
+        if (discount != 0) {
             String formattedPrice = String.format(Formatting.PRICE, -discount);
             DiscountManager.add(Category.DISCOUNT_PRICE, formattedPrice);
         }

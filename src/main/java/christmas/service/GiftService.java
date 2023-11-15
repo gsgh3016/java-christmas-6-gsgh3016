@@ -12,7 +12,7 @@ public class GiftService {
     private static final int quantity = 1;
 
     public int getGift(int totalPrice) {
-        if (totalPrice >= GIFT_POLICY){
+        if (totalPrice >= GIFT_POLICY) {
             String formattedGift = String.format(Formatting.MENU, gift.getName(), quantity);
             DiscountManager.add(Category.GIFT, formattedGift);
             return gift.getPrice() * quantity;

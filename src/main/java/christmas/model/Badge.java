@@ -25,7 +25,7 @@ public enum Badge {
     }
 
     public static Badge select(int discount) {
-        for (Badge badge: Badge.values()) {
+        for (Badge badge : Badge.values()) {
             if (badge.condition.test(discount)) {
                 return badge;
             }

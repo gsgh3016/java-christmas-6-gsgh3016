@@ -1,8 +1,6 @@
 package christmas.model;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 public enum Menu {
@@ -31,11 +29,14 @@ public enum Menu {
         this.price = price;
         this.category = category;
     }
+
     public static Menu select(String order) {
         Optional<Menu> matchingMenu = Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(order))
                 .findFirst();
-        if (matchingMenu.isPresent()) { return matchingMenu.get(); }
+        if (matchingMenu.isPresent()) {
+            return matchingMenu.get();
+        }
         throw new IllegalArgumentException();
     }
 
@@ -47,8 +48,12 @@ public enum Menu {
         return this.category.equals("메인");
     }
 
-    public int getPrice() { return this.price; }
+    public int getPrice() {
+        return this.price;
+    }
 
-    public String getName() { return this.name; }
+    public String getName() {
+        return this.name;
+    }
 }
 

@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Menu;
 import christmas.model.MyDate;
 import christmas.util.OrderParser;
-import christmas.util.validation.SingleOrderValidator;
 import christmas.util.validation.TotalOrderValidator;
 
 import java.util.EnumMap;

@@ -18,7 +18,7 @@ public class OrderPriceService {
     }
 
     public int getTotalPrice() {
-        for (Map.Entry<Menu, Integer> order: orders.entrySet()) {
+        for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
             Menu menu = order.getKey();
             int quantity = order.getValue();
             totalPrice += menu.getPrice() * quantity;
@@ -29,7 +29,7 @@ public class OrderPriceService {
     public void printOrders() {
         OutputView.printEmptyLine();
         OutputView.printCategory(Category.ORDERED_MENU);
-        for (Map.Entry<Menu, Integer> order: orders.entrySet()) {
+        for (Map.Entry<Menu, Integer> order : orders.entrySet()) {
             OutputView.printOrderDetail(order.getKey(), order.getValue());
         }
         OutputView.printEmptyLine();

@@ -1,7 +1,6 @@
 package christmas.service.discount;
 
 import christmas.service.ServiceTestData;
-import christmas.service.discount.DDayDiscountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

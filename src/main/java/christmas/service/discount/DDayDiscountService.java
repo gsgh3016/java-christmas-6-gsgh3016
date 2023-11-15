@@ -37,6 +37,6 @@ public class DDayDiscountService extends DiscountService {
     }
 
     public static final DiscountStrategy DDAY_DISCOUNT_STRATEGY =
-            date -> applyDiscount((MyDate) date, MyDate::isDDayPeriod);;
+            date -> applyDiscount((MyDate) date, MyDate::isDDayPeriod);
 }
 
