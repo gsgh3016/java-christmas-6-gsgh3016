@@ -1,6 +1,5 @@
-package christmas.util;
+package christmas.model;
 
-import christmas.model.DiscountManager;
 import christmas.util.constant.Category;
 import org.junit.jupiter.api.Test;
 
