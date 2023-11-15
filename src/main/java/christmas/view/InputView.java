@@ -7,27 +7,32 @@ import christmas.util.OrderParser;
 import christmas.util.validation.TotalOrderValidator;
 
 import java.util.EnumMap;
+import java.util.NoSuchElementException;
 
 import static christmas.util.validation.DateValidator.checkDay;
 
 public class InputView {
-    public static MyDate inputDate() {
+    public MyDate inputDate() {
         while (true) {
             try {
                 String input = Console.readLine();
                 return new MyDate(checkDay(input));
+            } catch (NoSuchElementException ignored){
+                Console.readLine();
             } catch (Exception e) {
                 ErrorView.print(e.getMessage());
             }
         }
     }
 
-    public static EnumMap<Menu, Integer> inputOrder() {
+    public EnumMap<Menu, Integer> inputOrder() {
         while (true) {
             try {
                 TotalOrderValidator validator = new TotalOrderValidator();
                 String input = Console.readLine();
                 return OrderParser.parse(validator.checkTotalOrder(input));
+            } catch (NoSuchElementException ignored){
+                Console.readLine();
             } catch (Exception e) {
                 ErrorView.print(e.getMessage());
             }

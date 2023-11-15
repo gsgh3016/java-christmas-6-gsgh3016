@@ -14,6 +14,8 @@ public class Service {
     private OrderPriceService orderService;
     private PaymentService paymentService;
     private int totalPrice;
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
 
     public void start() {
         input();
@@ -22,22 +24,22 @@ public class Service {
     }
 
     private void input() {
-        OutputView.printBookingQuestion();
-        date = InputView.inputDate();
-        OutputView.printMenuQuestion();
-        orders = InputView.inputOrder();
-        OutputView.printEventBenefits(date.getDayOfMonth());
+        outputView.printBookingQuestion();
+        date = inputView.inputDate();
+        outputView.printMenuQuestion();
+        orders = inputView.inputOrder();
+        outputView.printEventBenefits(date.getDayOfMonth());
         orderService = new OrderPriceService(orders);
     }
 
     private void order() {
         totalPrice = orderService.getTotalPrice();
-        orderService.printOrders();
         paymentService = new PaymentService(date, orders);
         paymentService.pay(totalPrice);
     }
 
     private void print() {
-        DiscountManager.getInstance().printResult();
+        outputView.printOrders(orders, totalPrice);
+        outputView.printDiscount();
     }
 }

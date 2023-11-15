@@ -26,25 +26,6 @@ public class DiscountManager {
                 .add(discountDetail);
     }
 
-    public void printResult() {
-        for (String category: Formatting.DISCOUNT_ORDERING) {
-            List<String> details = findByCategory(category);
-            printCategory(category, details);
-        }
-    }
-
-    private void printCategory(String category, List<String> details) {
-        OutputView.printCategory(category);
-        printDetail(details);
-        OutputView.printEmptyLine();
-    }
-
-    private void printDetail(List<String> details) {
-        for (String detail : details) {
-            OutputView.printResultDetail(detail);
-        }
-    }
-
     public static List<String> findByCategory(String category) {
         return DiscountManager.instance.discountContents.get(category);
     }
