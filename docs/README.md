@@ -7,7 +7,7 @@
 
 ![](./wooteco_christmas.png)
 
-<center>*intellijIDEA 기본 플러그인으로 생성된 다이어그램입니다.*</center>
+<center><i>intellijIDEA 기본 플러그인으로 생성된 다이어그램입니다.</i></center>
 
 ## ⚙️ 기능 요구 사항
 ### 🌟 주요 기능
@@ -131,13 +131,13 @@
   - 서비스 로직의 캡슐화
   - 객체 의존성 분리
   - 확장성
-- 함수형 인터페이스: 기초적으로 람다 함수부터 Predicate, Optional, Stream이 있음
-- @ParameterizedTest의 용도
+- 함수형 인터페이스: 기초적으로 람다 함수부터 `Predicate`, `Optional`, `Stream`이 있음
+- `@ParameterizedTest`의 용도
   - 모든 테스트 코드를 파라미터화 하여 진행하면 오버헤드일 수 있음
   - 수많은 테스트 케이스를 캡슐화하여 관리하기 위함.
-- enum의 새로운 활용 용도: 상태 관리
-  - true, false 두가지 이분법적으로 존재하는 상태가 아닌 다양한 상태를 표현하기 위해서 적절함.
-- git의 다양한 활용법
-  - 이전에는 reset, revert를 간단하게만 사용
-  - 여러 커밋을 변경하기 위해 git rebase -i HEAD~3 커맨드를 활용할 수 있음.
+- `enum`의 새로운 활용 용도: 상태 관리
+  - `true`, `false` 두가지 이분법적으로 존재하는 상태가 아닌 다양한 상태를 표현하기 위해서 적절함.
+- `git`의 다양한 활용법
+  - 이전에는 `reset`, `revert`를 간단하게만 사용
+  - 여러 커밋을 변경하기 위해 `git rebase -i HEAD~3` 커맨드를 활용할 수 있음.
 - intellijIDEA 적극 활용: UML 다이어그램을 생성해주는 기능
